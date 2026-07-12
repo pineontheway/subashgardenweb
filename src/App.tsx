@@ -1,9 +1,6 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { motion } from 'framer-motion'
-import SampleVideos from './SampleVideos'
 import './App.css'
-
-type Page = 'home' | 'samples'
 
 const PHONE_PRIMARY = '9603884444'
 const PHONE_SECONDARY = '9908149199'
@@ -99,45 +96,12 @@ const fadeUp = {
 }
 
 export default function App() {
-  const [page, setPage] = useState<Page>(() =>
-    typeof window !== 'undefined' && window.location.hash === '#samples'
-      ? 'samples'
-      : 'home',
-  )
-
-  useEffect(() => {
-    const onHash = () => {
-      setPage(window.location.hash === '#samples' ? 'samples' : 'home')
-    }
-    window.addEventListener('hashchange', onHash)
-    return () => window.removeEventListener('hashchange', onHash)
-  }, [])
-
-  const goHome = () => {
-    window.location.hash = ''
-    setPage('home')
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-
-  const goSamples = () => {
-    window.location.hash = 'samples'
-    setPage('samples')
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-
   return (
     <div className="app">
       <Bubbles />
 
       <header className="nav">
-        <a
-          href="#top"
-          className="nav-brand"
-          onClick={(e) => {
-            e.preventDefault()
-            goHome()
-          }}
-        >
+        <a href="#top" className="nav-brand">
           <img
             className="nav-logo"
             src="/images/subhash-chandra-bose.png"
@@ -151,29 +115,14 @@ export default function App() {
           </span>
         </a>
         <nav className="nav-links" aria-label="Main menu">
-          {page === 'home' ? (
-            <>
-              <a href="#attractions">Rides</a>
-              <a href="#visit">Visit info</a>
-              <a href="#gallery">Photos</a>
-              <a href="#location">Location</a>
-              <a href="#faq">FAQ</a>
-            </>
-          ) : null}
-          <button type="button" className="nav-tab" onClick={goSamples}>
-            Sample videos
-          </button>
+          <a href="#attractions">Rides</a>
+          <a href="#visit">Visit info</a>
+          <a href="#gallery">Photos</a>
+          <a href="#location">Location</a>
+          <a href="#faq">FAQ</a>
         </nav>
-        <button type="button" className="nav-tab nav-tab-mobile" onClick={goSamples}>
-          Samples
-        </button>
       </header>
 
-      {page === 'samples' ? (
-        <main id="top" className="samples-main">
-          <SampleVideos onBack={goHome} />
-        </main>
-      ) : (
       <main id="top">
         <section className="hero" aria-label="Welcome">
           <div className="hero-media">
@@ -182,12 +131,10 @@ export default function App() {
               muted
               loop
               playsInline
-              poster="/samples/option-5.jpg"
+              poster="/images/hero-still.jpg"
               aria-label="Kid flying out of a water slide with a big splash"
-              key="hero-option-5"
             >
-              {/* Same file as Sample videos Option 5 — cinematic slide */}
-              <source src="/samples/option-5.mp4" type="video/mp4" />
+              <source src="/videos/hero.mp4" type="video/mp4" />
             </video>
           </div>
           <div className="hero-overlay" />
@@ -198,31 +145,21 @@ export default function App() {
               transition={{ duration: 0.75, ease: 'easeOut' }}
             >
               <div className="hero-badge">Open for family fun</div>
-              <p className="hero-kicker">Madanpalle · Makloor</p>
               <h1>
                 <span className="brand-name">Subhash Garden</span>
               </h1>
               <div className="hero-underline" aria-hidden="true" />
               <p className="hero-lead">
-                Water slides, wave pool, and rain dance. A fun day out for teens,
-                kids, and families.
+                Water slides · wave pool · rain dance
               </p>
-              <div className="hero-chips" aria-label="Quick facts">
-                <span className="hero-chip">10:30 AM – 5:30 PM</span>
-                <span className="hero-chip">From ~₹399</span>
-                <span className="hero-chip">Makloor · 503003</span>
-              </div>
               <div className="hero-actions">
                 <a className="btn btn-whatsapp" href={WHATSAPP} target="_blank" rel="noreferrer">
                   WhatsApp us
                 </a>
-                <a className="btn btn-ghost" href={`tel:+91${PHONE_PRIMARY}`}>
-                  Call {PHONE_PRIMARY}
-                </a>
-                <a className="btn btn-primary" href="#visit">
-                  Visit info
-                </a>
               </div>
+              <a className="hero-secondary-link" href="#visit">
+                Visit info →
+              </a>
             </motion.div>
           </div>
         </section>
@@ -367,10 +304,7 @@ export default function App() {
           <div className="section-head">
             <span className="section-kicker">Photos</span>
             <h2>A look at the fun</h2>
-            <p>
-              Sample photos for the website. We can replace these with real park
-              photos later.
-            </p>
+            <p>A few photos from the park vibe. More real photos can be added later.</p>
           </div>
           <div className="gallery">
             <figure>
@@ -433,41 +367,36 @@ export default function App() {
           </div>
         </section>
       </main>
-      )}
 
-      {page === 'home' ? (
-        <>
-          <footer className="footer">
-            <img
-              className="footer-logo"
-              src="/images/subhash-chandra-bose.png"
-              alt="Netaji Subhash Chandra Bose"
-              width={72}
-              height={72}
-            />
-            <div className="logo-script">Subhash Garden</div>
-            <p>Water park · Madanpalle · Makloor · 503003</p>
-            <p>
-              <a href={`tel:+91${PHONE_PRIMARY}`}>{PHONE_PRIMARY}</a>
-              {' · '}
-              <a href={`tel:+91${PHONE_SECONDARY}`}>{PHONE_SECONDARY}</a>
-            </p>
-            <p className="tiny">
-              This website is for information only. Tickets are not sold online
-              here.
-            </p>
-          </footer>
+      <footer className="footer">
+        <img
+          className="footer-logo"
+          src="/images/subhash-chandra-bose.png"
+          alt="Netaji Subhash Chandra Bose"
+          width={72}
+          height={72}
+        />
+        <div className="logo-script">Subhash Garden</div>
+        <p>Water park · Madanpalle · Makloor · 503003</p>
+        <p>
+          <a href={`tel:+91${PHONE_PRIMARY}`}>{PHONE_PRIMARY}</a>
+          {' · '}
+          <a href={`tel:+91${PHONE_SECONDARY}`}>{PHONE_SECONDARY}</a>
+        </p>
+        <p className="tiny">
+          This website is for information only. Tickets are not sold online
+          here.
+        </p>
+      </footer>
 
-          <div className="sticky-cta" role="navigation" aria-label="Quick contact">
-            <a className="call" href={`tel:+91${PHONE_PRIMARY}`}>
-              Call
-            </a>
-            <a className="wa" href={WHATSAPP} target="_blank" rel="noreferrer">
-              WhatsApp
-            </a>
-          </div>
-        </>
-      ) : null}
+      <div className="sticky-cta" role="navigation" aria-label="Quick contact">
+        <a className="call" href={`tel:+91${PHONE_PRIMARY}`}>
+          Call now
+        </a>
+        <a className="wa" href={WHATSAPP} target="_blank" rel="noreferrer">
+          WhatsApp
+        </a>
+      </div>
     </div>
   )
 }
