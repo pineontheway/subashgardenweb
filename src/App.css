@@ -1,0 +1,11 @@
+/* Component-scoped extras kept minimal — most styles live in index.css */
+
+.hero-fallback {
+  display: none;
+}
+
+a[href^='tel:'] {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(125, 249, 255, 0.35);
+}
