@@ -193,11 +193,6 @@ export default function App() {
           >
             <span className="section-kicker">What schools get</span>
             <h2>Water. Adventure. Camp nights.</h2>
-            <p>
-              Built for school groups near Nizamabad — a full day of fun, or a
-              24-hour day + camping package with meals, costumes, and supervised
-              activities.
-            </p>
           </motion.div>
 
           <div className="attractions">
