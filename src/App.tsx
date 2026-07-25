@@ -117,7 +117,6 @@ export default function App() {
         <nav className="nav-links" aria-label="Main menu">
           <a href="#attractions">Rides</a>
           <a href="#visit">Visit info</a>
-          <a href="#gallery">Photos</a>
           <a href="#location">Location</a>
           <a href="#faq">FAQ</a>
         </nav>
@@ -301,32 +300,6 @@ export default function App() {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section className="section" id="gallery">
-          <div className="section-head">
-            <span className="section-kicker">Photos</span>
-            <h2>A look at the fun</h2>
-            <p>A few photos from the park vibe. More real photos can be added later.</p>
-          </div>
-          <div className="gallery">
-            <figure>
-              <img src="/images/hero-still.jpg" alt="Group around a campfire with fireflies at night" loading="lazy" />
-              <figcaption>Campfire nights</figcaption>
-            </figure>
-            <figure>
-              <img src="/images/slides.jpg" alt="Water slides" loading="lazy" />
-              <figcaption>Slides</figcaption>
-            </figure>
-            <figure>
-              <img src="/images/wave-pool.jpg" alt="Wave pool" loading="lazy" />
-              <figcaption>Waves</figcaption>
-            </figure>
-            <figure>
-              <img src="/images/rain-dance.jpg" alt="Rain dance area" loading="lazy" />
-              <figcaption>Rain dance</figcaption>
-            </figure>
           </div>
         </section>
 
