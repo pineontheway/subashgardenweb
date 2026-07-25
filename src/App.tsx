@@ -14,28 +14,28 @@ const MAPS_URL = 'https://maps.app.goo.gl/M49KjkBGy6xz85pp9'
 
 const attractions = [
   {
-    title: 'Water slides',
-    blurb: 'Fun slides for kids and friends. Big splash at the end.',
-    tag: 'Fun',
+    title: 'Water activities',
+    blurb: 'About 20 slides and full water play — the heart of every school day trip.',
+    tag: 'Day package',
     image: '/images/slides.jpg',
   },
   {
-    title: 'Wave pool',
-    blurb: 'Waves in the pool. Great for groups and photos.',
-    tag: 'Popular',
+    title: 'Adventure & rope course',
+    blurb: 'Medium and low rope course plus adventure activities for school groups.',
+    tag: 'Adventure',
+    image: '/images/aerial.jpg',
+  },
+  {
+    title: 'Meals & costumes',
+    blurb: 'Costume, veg lunch, and evening snacks (onion pakoda) included in packages.',
+    tag: 'All-inclusive',
     image: '/images/wave-pool.jpg',
   },
   {
-    title: 'Rain dance',
-    blurb: 'Cool water spray and music on hot days.',
-    tag: 'Cool down',
-    image: '/images/rain-dance.jpg',
-  },
-  {
-    title: 'Garden & picnic',
-    blurb: 'Open space to rest, walk, and enjoy with family.',
-    tag: 'Relax',
-    image: '/images/aerial.jpg',
+    title: 'Overnight camping',
+    blurb: 'Tents, campfire with music, games, and group activities from 5 PM onwards.',
+    tag: '₹999 package',
+    image: '/images/hero-still.jpg',
   },
 ]
 
@@ -115,7 +115,7 @@ export default function App() {
           </span>
         </a>
         <nav className="nav-links" aria-label="Main menu">
-          <a href="#attractions">Rides</a>
+          <a href="#attractions">Activities</a>
           <a href="#visit">Visit info</a>
           <a href="#location">Location</a>
           <a href="#faq">FAQ</a>
@@ -191,11 +191,12 @@ export default function App() {
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.5 }}
           >
-            <span className="section-kicker">What you can do</span>
-            <h2>Cool water. Happy day.</h2>
+            <span className="section-kicker">What schools get</span>
+            <h2>Water. Adventure. Camp nights.</h2>
             <p>
-              A simple water park and garden near Nizamabad. Come for the slides,
-              stay for the fun with friends and family.
+              Built for school groups near Nizamabad — a full day of fun, or a
+              24-hour day + camping package with meals, costumes, and supervised
+              activities.
             </p>
           </motion.div>
 
