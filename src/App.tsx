@@ -144,13 +144,18 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, ease: 'easeOut' }}
             >
-              <div className="hero-badge">Open for family fun</div>
+              <div className="hero-badge">Now reimagined</div>
               <h1>
                 <span className="brand-name">Subhash Garden</span>
+                <span className="brand-version" aria-hidden="true">
+                  <span className="brand-version-glow" />
+                  <span className="brand-version-num">2.0</span>
+                </span>
+                <span className="sr-only">2.0</span>
               </h1>
               <div className="hero-underline" aria-hidden="true" />
               <p className="hero-lead">
-                Water slides · wave pool · rain dance
+                Water slides · wave pool · rain dance · campfire nights
               </p>
               <div className="hero-actions">
                 <a className="btn btn-whatsapp" href={WHATSAPP} target="_blank" rel="noreferrer">
