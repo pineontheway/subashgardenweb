@@ -347,7 +347,8 @@ ul {
 .hero h1 .brand-name {
   display: block;
   font-style: normal;
-  font-size: clamp(1.05rem, 4.2vw, 1.55rem);
+  /* Mobile-first: ~20% larger wordmark for readability on phones */
+  font-size: clamp(1.26rem, 5.04vw, 1.86rem);
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
