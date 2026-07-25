@@ -134,14 +134,6 @@ const faqs = [
     q: 'Where is Subhash Garden?',
     a: '243, Madanpalle, Makloor, Telangana 503003, India.',
   },
-  {
-    q: 'How much is entry?',
-    a: 'Often about ₹399–400 for kids and ₹499–500 for adults. Some days may include free veg lunch until early afternoon. Please confirm before you come.',
-  },
-  {
-    q: 'Are there extra charges?',
-    a: 'Sometimes yes — for swim dress, tubes, or extra food. Ask on WhatsApp so you know the full cost.',
-  },
 ]
 
 function Bubbles() {
