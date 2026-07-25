@@ -12,33 +12,6 @@ const WHATSAPP =
 const ADDRESS = '243, Madanpalle, Makloor, Telangana 503003, India'
 const MAPS_URL = 'https://maps.app.goo.gl/M49KjkBGy6xz85pp9'
 
-const attractions = [
-  {
-    title: 'Water activities',
-    blurb: 'About 20 slides and full water play — the heart of every school day trip.',
-    tag: 'Day package',
-    image: '/images/slides.jpg',
-  },
-  {
-    title: 'Adventure & rope course',
-    blurb: 'Medium and low rope course plus adventure activities for school groups.',
-    tag: 'Adventure',
-    image: '/images/aerial.jpg',
-  },
-  {
-    title: 'Meals & costumes',
-    blurb: 'Costume, veg lunch, and evening snacks (onion pakoda) included in packages.',
-    tag: 'All-inclusive',
-    image: '/images/wave-pool.jpg',
-  },
-  {
-    title: 'Overnight camping',
-    blurb: 'Tents, campfire with music, games, and group activities from 5 PM onwards.',
-    tag: '₹999 package',
-    image: '/images/hero-still.jpg',
-  },
-]
-
 const faqs = [
   {
     q: 'Can I buy tickets on this website?',
@@ -115,7 +88,7 @@ export default function App() {
           </span>
         </a>
         <nav className="nav-links" aria-label="Main menu">
-          <a href="#attractions">Activities</a>
+          <a href="#packages">Packages</a>
           <a href="#visit">Visit info</a>
           <a href="#location">Location</a>
           <a href="#faq">FAQ</a>
@@ -182,7 +155,8 @@ export default function App() {
           </div>
         </div>
 
-        <section className="section" id="attractions">
+        {/* Packages UI lands here next — two clear school offers */}
+        <section className="section" id="packages">
           <motion.div
             className="section-head"
             variants={fadeUp}
@@ -194,28 +168,6 @@ export default function App() {
             <span className="section-kicker">What schools get</span>
             <h2>Water. Adventure. Camp nights.</h2>
           </motion.div>
-
-          <div className="attractions">
-            {attractions.map((item, i) => (
-              <motion.article
-                key={item.title}
-                className="attraction-card"
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: '-20px' }}
-                transition={{ duration: 0.45, delay: i * 0.06 }}
-              >
-                <img src={item.image} alt={item.title} loading="lazy" />
-                <div className="card-fade" />
-                <div className="card-body">
-                  <span className="tag">{item.tag}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.blurb}</p>
-                </div>
-              </motion.article>
-            ))}
-          </div>
         </section>
 
         <section className="section" id="visit">
