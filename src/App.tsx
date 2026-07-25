@@ -132,7 +132,7 @@ export default function App() {
               loop
               playsInline
               poster="/images/hero-still.jpg"
-              aria-label="Kid flying out of a water slide with a big splash"
+              aria-label="Kids and teachers around a campfire at night with fireflies"
             >
               <source src="/videos/hero.mp4" type="video/mp4" />
             </video>
@@ -308,8 +308,8 @@ export default function App() {
           </div>
           <div className="gallery">
             <figure>
-              <img src="/images/hero-still.jpg" alt="Child playing in the pool" loading="lazy" />
-              <figcaption>Splash</figcaption>
+              <img src="/images/hero-still.jpg" alt="Group around a campfire with fireflies at night" loading="lazy" />
+              <figcaption>Campfire nights</figcaption>
             </figure>
             <figure>
               <img src="/images/slides.jpg" alt="Water slides" loading="lazy" />
