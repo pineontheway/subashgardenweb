@@ -248,21 +248,6 @@ export default function App() {
           </div>
         </section>
 
-        <div className="quick-strip" aria-label="Quick facts">
-          <div className="quick-card">
-            <strong>11 AM – 5 PM</strong>
-            <span>Day package</span>
-          </div>
-          <div className="quick-card">
-            <strong>₹399 · ₹999</strong>
-            <span>Day · day + camping</span>
-          </div>
-          <div className="quick-card">
-            <strong>For schools</strong>
-            <span>Groups · 15:1 care</span>
-          </div>
-        </div>
-
         <section className="section" id="packages">
           <motion.div
             className="section-head"
