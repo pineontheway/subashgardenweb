@@ -638,75 +638,253 @@ ul {
   font-size: 0.98rem;
 }
 
-/* ATTRACTIONS */
-.attractions {
+/* SCHOOL PACKAGES — two offers, mobile-first */
+.package-grid {
   display: grid;
-  gap: 14px;
+  gap: 16px;
+  align-items: start;
 }
 
-@media (min-width: 700px) {
-  .attractions {
-    grid-template-columns: repeat(2, 1fr);
+@media (min-width: 780px) {
+  .package-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
   }
 }
 
-.attraction-card {
+.package-card {
   position: relative;
-  border-radius: var(--radius);
-  overflow: hidden;
-  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px 18px 18px;
+  border-radius: calc(var(--radius) + 4px);
+  background: linear-gradient(165deg, rgba(10, 48, 74, 0.82), rgba(4, 21, 37, 0.78));
   border: 1px solid var(--glass-border);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(12px);
 }
 
-.attraction-card img {
-  width: 100%;
-  height: 100%;
-  min-height: 220px;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+.package-card--featured {
+  border-color: rgba(125, 249, 255, 0.55);
+  box-shadow:
+    0 0 0 1px rgba(125, 249, 255, 0.18),
+    0 22px 56px rgba(0, 194, 255, 0.14),
+    0 18px 48px rgba(0, 0, 0, 0.32);
+  background: linear-gradient(
+    165deg,
+    rgba(12, 58, 88, 0.92),
+    rgba(6, 32, 52, 0.88) 55%,
+    rgba(20, 40, 48, 0.85)
+  );
 }
 
-.attraction-card:hover img {
-  transform: scale(1.05);
-}
-
-.attraction-card .card-fade {
+.package-badge {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 30%, rgba(4, 21, 37, 0.92) 100%);
+  top: -11px;
+  right: 16px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #041525;
+  background: linear-gradient(120deg, var(--aqua), var(--cyan), #ffd166);
+  box-shadow: 0 6px 18px rgba(0, 194, 255, 0.35);
 }
 
-.attraction-card .card-body {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 16px 18px 18px;
+.package-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
 }
 
-.attraction-card h3 {
-  font-size: 1.2rem;
+.package-card-head h3 {
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
   margin-bottom: 4px;
 }
 
-.attraction-card p {
+.package-hours {
   color: var(--muted);
   font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.35;
+  max-width: 22ch;
 }
 
-.tag {
-  display: inline-block;
-  margin-bottom: 8px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 0.7rem;
-  font-weight: 700;
+.package-price {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.package-price strong {
+  display: block;
+  font-size: clamp(1.85rem, 7vw, 2.35rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  background: linear-gradient(135deg, #fff 10%, var(--aqua) 55%, var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.package-price span {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  background: rgba(0, 194, 255, 0.18);
+  color: var(--muted);
+}
+
+.package-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.package-highlights li {
+  position: relative;
+  padding-left: 1.55rem;
+  color: rgba(232, 251, 255, 0.92);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.package-highlights li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.35em;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background-color: var(--aqua);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3.5 8.2l3 3 6-6.5' stroke='%23041525' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: 10px 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 10px rgba(125, 249, 255, 0.35);
+}
+
+.package-cta {
+  width: 100%;
+  justify-content: center;
+  min-height: 48px;
+  font-weight: 700;
+}
+
+.package-details {
+  border-top: 1px solid rgba(125, 249, 255, 0.14);
+  padding-top: 4px;
+  margin-top: 2px;
+}
+
+.package-details summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 2px;
+  font-size: 0.92rem;
+  font-weight: 700;
   color: var(--aqua);
-  border: 1px solid rgba(125, 249, 255, 0.25);
+  user-select: none;
+}
+
+.package-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.package-details summary::after {
+  content: '';
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 2px solid var(--aqua);
+  border-bottom: 2px solid var(--aqua);
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  margin-top: -4px;
+}
+
+.package-details[open] summary::after {
+  transform: rotate(-135deg);
+  margin-top: 4px;
+}
+
+.package-details summary:hover,
+.package-details summary:focus-visible {
+  color: #fff;
+}
+
+.package-details summary:focus-visible {
+  outline: 2px solid var(--aqua);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+.package-details-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 4px 2px 10px;
+}
+
+.package-group h4 {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--aqua);
+  margin-bottom: 8px;
+}
+
+.package-group ul {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.package-group li {
+  position: relative;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.package-group li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--cyan);
+  font-weight: 800;
+}
+
+.package-footnote {
+  margin-top: 18px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  max-width: 40ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* INFO / TICKETS (display only) */
@@ -1078,7 +1256,6 @@ ul {
     animation: none;
   }
 
-  .attraction-card img,
   .gallery img {
     transition: none;
   }

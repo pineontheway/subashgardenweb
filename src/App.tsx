@@ -4,13 +4,126 @@ import './App.css'
 
 const PHONE_PRIMARY = '9603884444'
 const PHONE_SECONDARY = '9908149199'
-const WHATSAPP =
-  'https://wa.me/919603884444?text=' +
-  encodeURIComponent(
-    'Hi Subhash Garden! I want to know about timings and how to visit. 243, Madanpalle, Makloor, Telangana 503003.',
-  )
+const WHATSAPP_BASE = 'https://wa.me/919603884444?text='
+
+function waLink(message: string) {
+  return WHATSAPP_BASE + encodeURIComponent(message)
+}
+
+const WHATSAPP = waLink(
+  'Hi Subhash Garden! I want to know about school packages and how to book. 243, Madanpalle, Makloor, Telangana 503003.',
+)
 const ADDRESS = '243, Madanpalle, Makloor, Telangana 503003, India'
 const MAPS_URL = 'https://maps.app.goo.gl/M49KjkBGy6xz85pp9'
+
+type PackageGroup = {
+  title: string
+  items: string[]
+}
+
+type SchoolPackage = {
+  id: string
+  name: string
+  price: string
+  priceNote: string
+  hours: string
+  badge?: string
+  featured?: boolean
+  highlights: string[]
+  fullGroups: PackageGroup[]
+  ctaLabel: string
+  whatsappMessage: string
+}
+
+const schoolPackages: SchoolPackage[] = [
+  {
+    id: 'day',
+    name: 'Day trip',
+    price: '₹399',
+    priceNote: 'per student',
+    hours: '11 AM – 5 PM',
+    highlights: [
+      'All water activities (~20 slides)',
+      'Medium & low rope course',
+      'Costume included',
+      'Veg lunch + evening snacks',
+    ],
+    fullGroups: [
+      {
+        title: 'Water & adventure',
+        items: [
+          'All water activities',
+          'About 20 slides',
+          'Medium and low rope course',
+          'Adventure activities',
+        ],
+      },
+      {
+        title: 'Food & costume',
+        items: [
+          'Costume',
+          'Veg lunch',
+          'Evening snacks (onion pakoda)',
+        ],
+      },
+      {
+        title: 'Timing',
+        items: ['11:00 AM to 5:00 PM'],
+      },
+    ],
+    ctaLabel: 'WhatsApp day trip',
+    whatsappMessage:
+      'Hi Subhash Garden! I want to book the school Day trip package (₹399, 11 AM–5 PM). School name: ',
+  },
+  {
+    id: 'camping',
+    name: 'Day + camping',
+    price: '₹999',
+    priceNote: 'per student',
+    hours: '11 AM → next day 10 AM · 24 hours',
+    badge: 'Most complete',
+    featured: true,
+    highlights: [
+      'Everything in Day trip',
+      'Tent stay from 5 PM',
+      'Dinner + campfire with music',
+      'Games, boating & group activities',
+    ],
+    fullGroups: [
+      {
+        title: 'Everything in Day trip',
+        items: [
+          'All water & adventure activities',
+          'Costume, veg lunch, evening snacks',
+          'Rope course and slides',
+        ],
+      },
+      {
+        title: 'After 5 PM — campsite',
+        items: [
+          'Campsite entry from 5 PM onwards',
+          'Allotment of tents',
+          'Outdoor game activities',
+          'Indoor game activities',
+          'Boating',
+          'Dinner 7:00 PM – 8:00 PM',
+          'Campfire with music',
+          'Group activities',
+          'Tug of war',
+          'Musical chairs',
+          'Tambola',
+        ],
+      },
+      {
+        title: 'Timing',
+        items: ['11:00 AM to next day 10:00 AM (24 hours)'],
+      },
+    ],
+    ctaLabel: 'WhatsApp camping',
+    whatsappMessage:
+      'Hi Subhash Garden! I want to book the school Day + camping package (₹999, 24 hours). School name: ',
+  },
+]
 
 const faqs = [
   {
@@ -133,8 +246,8 @@ export default function App() {
                   WhatsApp us
                 </a>
               </div>
-              <a className="hero-secondary-link" href="#visit">
-                Visit info →
+              <a className="hero-secondary-link" href="#packages">
+                View packages →
               </a>
             </motion.div>
           </div>
@@ -155,7 +268,6 @@ export default function App() {
           </div>
         </div>
 
-        {/* Packages UI lands here next — two clear school offers */}
         <section className="section" id="packages">
           <motion.div
             className="section-head"
@@ -165,9 +277,73 @@ export default function App() {
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.5 }}
           >
-            <span className="section-kicker">What schools get</span>
-            <h2>Water. Adventure. Camp nights.</h2>
+            <span className="section-kicker">School packages</span>
+            <h2>Two ways to come.</h2>
+            <p>Pick day or overnight. Open the full list anytime — then WhatsApp to book.</p>
           </motion.div>
+
+          <div className="package-grid">
+            {schoolPackages.map((pkg, i) => (
+              <motion.article
+                key={pkg.id}
+                className={`package-card${pkg.featured ? ' package-card--featured' : ''}`}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: '-20px' }}
+                transition={{ duration: 0.45, delay: i * 0.06 }}
+              >
+                {pkg.badge ? <span className="package-badge">{pkg.badge}</span> : null}
+
+                <header className="package-card-head">
+                  <div>
+                    <h3>{pkg.name}</h3>
+                    <p className="package-hours">{pkg.hours}</p>
+                  </div>
+                  <div className="package-price" aria-label={`${pkg.price} ${pkg.priceNote}`}>
+                    <strong>{pkg.price}</strong>
+                    <span>{pkg.priceNote}</span>
+                  </div>
+                </header>
+
+                <ul className="package-highlights">
+                  {pkg.highlights.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+
+                <a
+                  className={`btn ${pkg.featured ? 'btn-whatsapp' : 'btn-primary'} package-cta`}
+                  href={waLink(pkg.whatsappMessage)}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {pkg.ctaLabel}
+                </a>
+
+                <details className="package-details">
+                  <summary>See everything included</summary>
+                  <div className="package-details-body">
+                    {pkg.fullGroups.map((group) => (
+                      <div key={group.title} className="package-group">
+                        <h4>{group.title}</h4>
+                        <ul>
+                          {group.items.map((item) => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </details>
+              </motion.article>
+            ))}
+          </div>
+
+          <p className="package-footnote">
+            15:1 student–teacher care · Madanpalle, Makloor · Prices per student — confirm for your
+            group size on WhatsApp
+          </p>
         </section>
 
         <section className="section" id="visit">
