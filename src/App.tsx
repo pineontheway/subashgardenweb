@@ -349,37 +349,14 @@ export default function App() {
         <section className="section" id="visit">
           <div className="section-head">
             <span className="section-kicker">Plan your visit</span>
-            <h2>Visit info (no online tickets)</h2>
+            <h2>How to reach us</h2>
             <p>
-              You cannot buy tickets on this website. Read the details below,
-              then call or WhatsApp us.
+              School packages are listed above. Confirm dates and group size on
+              WhatsApp — tickets are not sold on this website.
             </p>
           </div>
 
-          <div className="info-grid">
-            <div className="glass-panel">
-              <h3 style={{ marginBottom: 8 }}>Entry price (approx.)</h3>
-              <div className="price-row">
-                <div>
-                  <h3>Kids</h3>
-                  <p>About ₹399–400</p>
-                </div>
-                <div className="price-tag">~₹399</div>
-              </div>
-              <div className="price-row">
-                <div>
-                  <h3>Adults</h3>
-                  <p>About ₹499–500</p>
-                </div>
-                <div className="price-tag">~₹499</div>
-              </div>
-              <p className="note">
-                *Prices and hours can change. Some days include free veg lunch
-                until about 2 PM. Please confirm by call or WhatsApp before you
-                travel.
-              </p>
-            </div>
-
+          <div className="info-grid info-grid--single">
             <div className="glass-panel">
               <div className="meta-list">
                 <div className="meta-item">
@@ -387,8 +364,17 @@ export default function App() {
                     ⏰
                   </div>
                   <div>
-                    <h3>Hours</h3>
-                    <p>Usually 10:30 AM – 5:30 PM (please confirm)</p>
+                    <h3>Day package hours</h3>
+                    <p>11:00 AM – 5:00 PM</p>
+                  </div>
+                </div>
+                <div className="meta-item">
+                  <div className="meta-icon" aria-hidden>
+                    ⛺
+                  </div>
+                  <div>
+                    <h3>Camping package</h3>
+                    <p>11:00 AM → next day 10:00 AM (24 hours)</p>
                   </div>
                 </div>
                 <div className="meta-item">
@@ -411,15 +397,6 @@ export default function App() {
                       {' · '}
                       <a href={`tel:+91${PHONE_SECONDARY}`}>{PHONE_SECONDARY}</a>
                     </p>
-                  </div>
-                </div>
-                <div className="meta-item">
-                  <div className="meta-icon" aria-hidden>
-                    🅿️
-                  </div>
-                  <div>
-                    <h3>On site</h3>
-                    <p>Parking, swimming pool, food, picnic space</p>
                   </div>
                 </div>
               </div>

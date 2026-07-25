@@ -897,6 +897,11 @@ ul {
   .info-grid {
     grid-template-columns: 1.2fr 1fr;
   }
+
+  .info-grid--single {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+  }
 }
 
 .glass-panel {
