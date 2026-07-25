@@ -241,13 +241,8 @@ export default function App() {
               <p className="hero-lead">
                 Day trips · overnight camps · group fun
               </p>
-              <div className="hero-actions">
-                <a className="btn btn-whatsapp" href={WHATSAPP} target="_blank" rel="noreferrer">
-                  WhatsApp us
-                </a>
-              </div>
               <a className="hero-secondary-link" href="#packages">
-                View packages →
+                View school packages →
               </a>
             </motion.div>
           </div>
