@@ -416,7 +416,7 @@ export default function App() {
           width={72}
           height={72}
         />
-        <div className="logo-script">Subhash Garden</div>
+        <p className="footer-name">Subhash Garden</p>
         <p>Water park · Madanpalle · Makloor · 503003</p>
         <p>
           <a href={`tel:+91${PHONE_PRIMARY}`}>{PHONE_PRIMARY}</a>

@@ -1170,13 +1170,12 @@ ul {
   text-align: center;
 }
 
-.footer .logo-script {
-  font-family: 'Pacifico', cursive;
-  font-size: 1.6rem;
-  background: linear-gradient(120deg, var(--aqua), var(--coral));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.footer-name {
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--foam);
   margin-bottom: 8px;
 }
 
