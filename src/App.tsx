@@ -154,7 +154,7 @@ export default function App() {
               </h1>
               <div className="hero-underline" aria-hidden="true" />
               <p className="hero-lead">
-                Water slides · wave pool · rain dance · campfire nights
+                Day trips · overnight camps · group fun
               </p>
               <div className="hero-actions">
                 <a className="btn btn-whatsapp" href={WHATSAPP} target="_blank" rel="noreferrer">
