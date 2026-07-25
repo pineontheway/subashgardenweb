@@ -170,16 +170,16 @@ export default function App() {
 
         <div className="quick-strip" aria-label="Quick facts">
           <div className="quick-card">
-            <strong>10:30 – 5:30</strong>
-            <span>Usual hours*</span>
+            <strong>11 AM – 5 PM</strong>
+            <span>Day package</span>
           </div>
           <div className="quick-card">
-            <strong>From ~₹399</strong>
-            <span>Kids entry*</span>
+            <strong>₹399 · ₹999</strong>
+            <span>Day · day + camping</span>
           </div>
           <div className="quick-card">
-            <strong>Madanpalle</strong>
-            <span>Makloor · 503003</span>
+            <strong>For schools</strong>
+            <span>Groups · 15:1 care</span>
           </div>
         </div>
 
