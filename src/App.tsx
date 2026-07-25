@@ -257,8 +257,7 @@ export default function App() {
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.5 }}
           >
-            <span className="section-kicker">School packages</span>
-            <h2>Two ways to come.</h2>
+            <h2>School packages</h2>
             <p>Pick day or overnight. Open the full list anytime — then WhatsApp to book.</p>
           </motion.div>
 
