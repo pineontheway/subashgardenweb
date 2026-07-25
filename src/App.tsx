@@ -144,7 +144,6 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, ease: 'easeOut' }}
             >
-              <div className="hero-badge">Now reimagined</div>
               <h1>
                 <span className="brand-name">Subhash Garden</span>
                 <span className="brand-version" aria-hidden="true">
