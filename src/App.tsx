@@ -291,15 +291,6 @@ export default function App() {
                   ))}
                 </ul>
 
-                <a
-                  className={`btn ${pkg.featured ? 'btn-whatsapp' : 'btn-primary'} package-cta`}
-                  href={waLink(pkg.whatsappMessage)}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {pkg.ctaLabel}
-                </a>
-
                 <details className="package-details">
                   <summary>See everything included</summary>
                   <div className="package-details-body">
