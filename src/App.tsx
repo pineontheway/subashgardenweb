@@ -538,9 +538,7 @@ export default function App() {
 
         <section className="section" id="location">
           <div className="section-head">
-            <span className="section-kicker">Find us</span>
-            <h2>Find us on the map</h2>
-            <p>{ADDRESS}</p>
+            <h2>Find us</h2>
           </div>
           <div className="map-card">
             <div className="map-visual">
