@@ -11,9 +11,10 @@ function waLink(message: string) {
 }
 
 const WHATSAPP = waLink(
-  'Hi Subhash Garden! I want to know about school packages and how to book. 243, Madanpalle, Makloor, Telangana 503003.',
+  'Hi Subhash Garden! I want to know about school packages and how to book. 243, Madanpalle village, Makloor mandal, Nizamabad district, Telangana 503003, India.',
 )
-const ADDRESS = '243, Madanpalle, Makloor, Telangana 503003, India'
+const ADDRESS =
+  '243, Madanpalle village, Makloor mandal, Nizamabad district, Telangana 503003, India'
 const MAPS_URL = 'https://maps.app.goo.gl/M49KjkBGy6xz85pp9'
 
 type PackageGroup = {
@@ -132,7 +133,7 @@ const faqs = [
   },
   {
     q: 'Where is Subhash Garden?',
-    a: '243, Madanpalle, Makloor, Telangana 503003, India.',
+    a: '243, Madanpalle village, Makloor mandal, Nizamabad district, Telangana 503003, India.',
   },
 ]
 
@@ -539,7 +540,7 @@ export default function App() {
           <div className="section-head">
             <span className="section-kicker">Find us</span>
             <h2>Find us on the map</h2>
-            <p>243, Madanpalle, Makloor, Telangana 503003, India</p>
+            <p>{ADDRESS}</p>
           </div>
           <div className="map-card">
             <div className="map-visual">
@@ -583,7 +584,7 @@ export default function App() {
           height={72}
         />
         <p className="footer-name">Subhash Garden</p>
-        <p>Water park · Madanpalle · Makloor · 503003</p>
+        <p>Madanpalle village · Makloor mandal · Nizamabad · 503003</p>
         <p>
           <a href={`tel:+91${PHONE_PRIMARY}`}>{PHONE_PRIMARY}</a>
           {' · '}
