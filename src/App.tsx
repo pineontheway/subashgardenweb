@@ -183,6 +183,9 @@ function SchoolEnquiryForm() {
   const [schoolName, setSchoolName] = useState('')
   const [phone, setPhone] = useState('')
   const [address, setAddress] = useState('')
+  const [village, setVillage] = useState('')
+  const [mandal, setMandal] = useState('')
+  const [district, setDistrict] = useState('')
   const [packageChoice, setPackageChoice] = useState('')
   const [students, setStudents] = useState('')
   const [note, setNote] = useState('')
@@ -210,7 +213,10 @@ function SchoolEnquiryForm() {
       `Phone: ${phoneNum}`,
     ]
 
-    if (address.trim()) lines.push(`Address: ${address.trim()}`)
+    if (address.trim()) lines.push(`Address / city: ${address.trim()}`)
+    if (village.trim()) lines.push(`Village: ${village.trim()}`)
+    if (mandal.trim()) lines.push(`Mandal: ${mandal.trim()}`)
+    if (district.trim()) lines.push(`District: ${district.trim()}`)
     lines.push(`Package: ${packageChoice || 'Not sure yet'}`)
     if (students.trim()) lines.push(`Approx. students: ${students.trim()}`)
     if (note.trim()) lines.push(`Note: ${note.trim()}`)
@@ -265,6 +271,42 @@ function SchoolEnquiryForm() {
           placeholder="City or full address (optional)"
           value={address}
           onChange={(e) => setAddress(e.target.value)}
+        />
+      </div>
+
+      <div className="enquiry-field">
+        <label htmlFor="enquiry-village">Village</label>
+        <input
+          id="enquiry-village"
+          name="village"
+          type="text"
+          placeholder="Village (optional)"
+          value={village}
+          onChange={(e) => setVillage(e.target.value)}
+        />
+      </div>
+
+      <div className="enquiry-field">
+        <label htmlFor="enquiry-mandal">Mandal</label>
+        <input
+          id="enquiry-mandal"
+          name="mandal"
+          type="text"
+          placeholder="Mandal (optional)"
+          value={mandal}
+          onChange={(e) => setMandal(e.target.value)}
+        />
+      </div>
+
+      <div className="enquiry-field">
+        <label htmlFor="enquiry-district">District</label>
+        <input
+          id="enquiry-district"
+          name="district"
+          type="text"
+          placeholder="District (optional)"
+          value={district}
+          onChange={(e) => setDistrict(e.target.value)}
         />
       </div>
 
