@@ -612,9 +612,6 @@ export default function App() {
                 <a className="btn btn-primary" href={MAPS_URL} target="_blank" rel="noreferrer">
                   Open in Google Maps
                 </a>
-                <a className="btn btn-ghost" href={WHATSAPP} target="_blank" rel="noreferrer">
-                  Ask for directions
-                </a>
               </div>
             </div>
           </div>
