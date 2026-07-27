@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState, type FormEvent } from 'react'
 import { motion } from 'framer-motion'
 import './App.css'
 
@@ -173,6 +173,162 @@ const fadeUp = {
   show: { opacity: 1, y: 0 },
 }
 
+const PACKAGE_OPTIONS = [
+  { value: '', label: 'Not sure yet' },
+  { value: 'Day trip (₹399)', label: 'Day trip — ₹399' },
+  { value: 'Day + camping (₹999)', label: 'Day + camping — ₹999' },
+] as const
+
+function SchoolEnquiryForm() {
+  const [schoolName, setSchoolName] = useState('')
+  const [phone, setPhone] = useState('')
+  const [address, setAddress] = useState('')
+  const [packageChoice, setPackageChoice] = useState('')
+  const [students, setStudents] = useState('')
+  const [note, setNote] = useState('')
+  const [error, setError] = useState('')
+
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+
+    const school = schoolName.trim()
+    const phoneNum = phone.trim()
+
+    if (!school || !phoneNum) {
+      setError('Please enter school name and phone number.')
+      return
+    }
+
+    setError('')
+
+    const lines = [
+      'Hi Subhash Garden 2.0!',
+      '',
+      'I would like to enquire about a school package.',
+      '',
+      `School: ${school}`,
+      `Phone: ${phoneNum}`,
+    ]
+
+    if (address.trim()) lines.push(`Address: ${address.trim()}`)
+    lines.push(`Package: ${packageChoice || 'Not sure yet'}`)
+    if (students.trim()) lines.push(`Approx. students: ${students.trim()}`)
+    if (note.trim()) lines.push(`Note: ${note.trim()}`)
+    lines.push('', 'Please get back to us. Thank you!')
+
+    const url = waLink(lines.join('\n'))
+    window.open(url, '_blank', 'noopener,noreferrer')
+  }
+
+  return (
+    <form className="enquiry-form" onSubmit={handleSubmit} noValidate>
+      <div className="enquiry-field">
+        <label htmlFor="enquiry-school">
+          School name <span className="req">*</span>
+        </label>
+        <input
+          id="enquiry-school"
+          name="school"
+          type="text"
+          autoComplete="organization"
+          placeholder="e.g. ABC Public School"
+          value={schoolName}
+          onChange={(e) => setSchoolName(e.target.value)}
+          required
+        />
+      </div>
+
+      <div className="enquiry-field">
+        <label htmlFor="enquiry-phone">
+          Phone number <span className="req">*</span>
+        </label>
+        <input
+          id="enquiry-phone"
+          name="phone"
+          type="tel"
+          inputMode="tel"
+          autoComplete="tel"
+          placeholder="e.g. 9876543210"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          required
+        />
+      </div>
+
+      <div className="enquiry-field">
+        <label htmlFor="enquiry-address">School address / city</label>
+        <input
+          id="enquiry-address"
+          name="address"
+          type="text"
+          autoComplete="street-address"
+          placeholder="City or full address (optional)"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+        />
+      </div>
+
+      <div className="enquiry-row">
+        <div className="enquiry-field">
+          <label htmlFor="enquiry-package">Package interest</label>
+          <select
+            id="enquiry-package"
+            name="package"
+            value={packageChoice}
+            onChange={(e) => setPackageChoice(e.target.value)}
+          >
+            {PACKAGE_OPTIONS.map((opt) => (
+              <option key={opt.label} value={opt.value}>
+                {opt.label}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="enquiry-field">
+          <label htmlFor="enquiry-students">Approx. students</label>
+          <input
+            id="enquiry-students"
+            name="students"
+            type="text"
+            inputMode="numeric"
+            placeholder="e.g. 80"
+            value={students}
+            onChange={(e) => setStudents(e.target.value)}
+          />
+        </div>
+      </div>
+
+      <div className="enquiry-field">
+        <label htmlFor="enquiry-note">Message</label>
+        <textarea
+          id="enquiry-note"
+          name="note"
+          rows={3}
+          placeholder="Preferred dates or any questions (optional)"
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
+        />
+      </div>
+
+      {error ? (
+        <p className="enquiry-error" role="alert">
+          {error}
+        </p>
+      ) : null}
+
+      <button type="submit" className="btn btn-whatsapp enquiry-submit">
+        WhatsApp us with this info
+      </button>
+
+      <p className="enquiry-privacy">
+        Opens WhatsApp with your details pre-filled. Nothing is stored on this
+        website — we have no backend form.
+      </p>
+    </form>
+  )
+}
+
 export default function App() {
   return (
     <div className="app">
@@ -194,6 +350,7 @@ export default function App() {
         </a>
         <nav className="nav-links" aria-label="Main menu">
           <a href="#packages">Packages</a>
+          <a href="#contact">Contact</a>
           <a href="#visit">Visit info</a>
           <a href="#location">Location</a>
           <a href="#faq">FAQ</a>
@@ -306,6 +463,35 @@ export default function App() {
             15:1 student–teacher care · Madanpalle, Makloor · Prices per student — confirm for your
             group size on WhatsApp
           </p>
+        </section>
+
+        <section className="section" id="contact">
+          <motion.div
+            className="section-head"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="section-kicker">Book for your school</span>
+            <h2>Contact us on WhatsApp</h2>
+            <p>
+              Fill in a few details and we open WhatsApp with a ready message —
+              no account or online payment on this site.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="enquiry-panel"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: '-20px' }}
+            transition={{ duration: 0.45 }}
+          >
+            <SchoolEnquiryForm />
+          </motion.div>
         </section>
 
         <section className="section" id="visit">

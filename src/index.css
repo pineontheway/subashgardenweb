@@ -887,6 +887,125 @@ ul {
   margin-right: auto;
 }
 
+/* WHATSAPP ENQUIRY FORM (no backend) */
+.enquiry-panel {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 22px 18px 20px;
+  border-radius: calc(var(--radius) + 4px);
+  background: linear-gradient(165deg, rgba(10, 48, 74, 0.88), rgba(4, 21, 37, 0.82));
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(12px);
+}
+
+.enquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.enquiry-row {
+  display: grid;
+  gap: 14px;
+}
+
+@media (min-width: 520px) {
+  .enquiry-row {
+    grid-template-columns: 1.3fr 0.9fr;
+  }
+}
+
+.enquiry-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.enquiry-field label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: rgba(232, 251, 255, 0.92);
+}
+
+.enquiry-field .req {
+  color: var(--coral);
+}
+
+.enquiry-field input,
+.enquiry-field select,
+.enquiry-field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(125, 249, 255, 0.22);
+  background: rgba(4, 21, 37, 0.55);
+  color: var(--foam);
+  font: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.enquiry-field textarea {
+  min-height: 96px;
+  resize: vertical;
+  line-height: 1.45;
+}
+
+.enquiry-field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%237df9ff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+}
+
+.enquiry-field input::placeholder,
+.enquiry-field textarea::placeholder {
+  color: rgba(232, 251, 255, 0.4);
+}
+
+.enquiry-field input:focus,
+.enquiry-field select:focus,
+.enquiry-field textarea:focus {
+  border-color: rgba(125, 249, 255, 0.55);
+  box-shadow: 0 0 0 3px rgba(0, 194, 255, 0.18);
+}
+
+.enquiry-field select option {
+  background: #07304a;
+  color: var(--foam);
+}
+
+.enquiry-error {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 107, 157, 0.12);
+  border: 1px solid rgba(255, 107, 157, 0.35);
+  color: #ffb3cb;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.enquiry-submit {
+  width: 100%;
+  margin-top: 4px;
+  font-size: 1rem;
+}
+
+.enquiry-privacy {
+  margin: 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
 /* INFO / TICKETS (display only) */
 .info-grid {
   display: grid;
