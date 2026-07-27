@@ -393,7 +393,6 @@ export default function App() {
         <nav className="nav-links" aria-label="Main menu">
           <a href="#packages">Packages</a>
           <a href="#contact">Contact</a>
-          <a href="#visit">Visit info</a>
           <a href="#location">Location</a>
           <a href="#faq">FAQ</a>
         </nav>
@@ -534,64 +533,6 @@ export default function App() {
           >
             <SchoolEnquiryForm />
           </motion.div>
-        </section>
-
-        <section className="section" id="visit">
-          <div className="section-head">
-            <span className="section-kicker">Plan your visit</span>
-            <h2>How to reach us</h2>
-            <p>
-              School packages are listed above. Confirm dates and group size on
-              WhatsApp — tickets are not sold on this website.
-            </p>
-          </div>
-
-          <div className="info-grid info-grid--single">
-            <div className="glass-panel">
-              <div className="meta-list">
-                <div className="meta-item">
-                  <div className="meta-icon" aria-hidden>
-                    ⏰
-                  </div>
-                  <div>
-                    <h3>Day package hours</h3>
-                    <p>11:00 AM – 5:00 PM</p>
-                  </div>
-                </div>
-                <div className="meta-item">
-                  <div className="meta-icon" aria-hidden>
-                    ⛺
-                  </div>
-                  <div>
-                    <h3>Camping package</h3>
-                    <p>11:00 AM → next day 10:00 AM (24 hours)</p>
-                  </div>
-                </div>
-                <div className="meta-item">
-                  <div className="meta-icon" aria-hidden>
-                    📍
-                  </div>
-                  <div>
-                    <h3>Address</h3>
-                    <p>{ADDRESS}</p>
-                  </div>
-                </div>
-                <div className="meta-item">
-                  <div className="meta-icon" aria-hidden>
-                    📞
-                  </div>
-                  <div>
-                    <h3>Phone</h3>
-                    <p>
-                      <a href={`tel:+91${PHONE_PRIMARY}`}>{PHONE_PRIMARY}</a>
-                      {' · '}
-                      <a href={`tel:+91${PHONE_SECONDARY}`}>{PHONE_SECONDARY}</a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </section>
 
         <section className="section" id="location">
